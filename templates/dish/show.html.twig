@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dish{% endblock %}
+
+{% block body %}
+    <h1>Dish</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dish.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ dish.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('dish_index') }}">back to list</a>
+
+    <a href="{{ path('dish_edit', {'id': dish.id}) }}">edit</a>
+
+    {{ include('dish/_delete_form.html.twig') }}
+{% endblock %}

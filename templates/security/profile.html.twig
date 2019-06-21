@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Mijn account: {{ user.username }}</h1>
+
+    {{ form_start(profileForm) }}
+        {{ form_row(profileForm.plainPassword) }}
+
+        <button class="button">Wijzigen</button>
+    {{ form_end(profileForm) }}
+{% endblock %}

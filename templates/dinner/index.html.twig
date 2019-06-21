@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Diners{% endblock %}
+
+{% block body %}
+    <h1>Diners</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Thema</th>
+                <th>Locatie</th>
+                <th>Dag</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dinner in dinners %}
+            <tr>
+                <td>{{ dinner.theme ? dinner.theme : '<i>onbekend</i>'}}</td>
+                <td>{{ dinner.location }}</td>
+                <td>{{ dinner.day ? dinner.day|date('Y-m-d') : '<i>onbekend</i>' }}</td>
+                <td>
+                    <a class="button" href="{{ path('dinner_show', {'id': dinner.id}) }}">Bekijken</a>
+                    <a class="button" href="{{ path('dinner_edit', {'id': dinner.id}) }}">Bewerken</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Geen diners bekend</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="button" href="{{ path('dinner_new') }}">Nieuw diner aanmaken</a>
+{% endblock %}

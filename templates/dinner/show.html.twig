@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dinner{% endblock %}
+
+{% block body %}
+    <h1>Dinner</h1>
+
+    <div class="clearfix">
+        <div class="button-group float-left">
+        <a class="button" href="{{ path('dinner_index') }}">Terug naar lijst</a>
+        <a class="button" href="{{ path('dinner_edit', {'id': dinner.id}) }}">Bewerken</a>
+        </div>
+        <div class="float-right">{{ include('dinner/_delete_form.html.twig') }}</div>
+    </div>
+
+
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Thema</th>
+            <td>{{ dinner.theme }}</td>
+        </tr>
+        <tr>
+            <th>Locatie</th>
+            <td>{{ dinner.location }}</td>
+        </tr>
+        <tr>
+            <th>Datum</th>
+            <td>{{ dinner.day ? dinner.day|date('Y-m-d') : 'Nog geen datum bekend' }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <h2>Gerechten</h2>
+    <a class="button" href="{{ path('dish_new', {'id': dinner.id}) }}">Voeg een gerecht toe</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Gemaakt door</th>
+            <th>Acties</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dish in dinner.dishes %}
+            <tr>
+                <td>{{ dish.name |capitalize }}</td>
+                <td>
+                    <ul>
+                        {% for user in dish.cookedby %}
+                            <li>{{ user.username |capitalize }} </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <a class="button" href="{{ path('dish_edit', {'id': dish.id}) }}">Bewerken</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Geen gerechten bekend voor dit diner</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <h2>Aanwezige gasten</h2>
+    <ul>
+        {% for guest in dinner.going %}
+            <li>{{ guest.username |capitalize }} </li>
+        {% endfor %}
+    </ul>
+
+
+
+    {{ include('dinner/_attend_form.html.twig') }}
+
+{% endblock %}

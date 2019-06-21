@@ -1,0 +1,9 @@
+<form method="post" action="{{ path('dinner_attend', {'id': dinner.id}) }}">
+    <fieldset class="fieldset">
+        <legend>Aanwezigheid</legend>
+        <input id="present" type="checkbox" name="present" {% if dinner.userGoing(user) %}checked{% endif %}><label for="present">Ik ben aanwezig</label>
+
+        <input type="hidden" name="_token" value="{{ csrf_token('attend' ~ dinner.id) }}">
+        <button class="success button">Bevestigen</button>
+    </fieldset>
+</form>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ asset('foundation.min.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<div class="grid-container">
+    <div class="top-bar" style="border: 1px solid; border-top: 0;">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li style="font-weight: bold;"><a href="{{ path('index') }}">⭐ 1 ster</a></li>
+                {% if is_granted('ROLE_USER') %}
+                    <li><a href="{{ path('dinner_index') }}">Diners</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+
+            {% if is_granted('ROLE_USER') %}
+                <li><a href="{{ path('app_profile') }}">Mijn account</a></li>
+                <li><a href="{{ path('app_logout') }}">Uitloggen</a></li>
+            {%  else %}
+                <li><a href="{{ path('app_login') }}">Inloggen</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    {% block body %}{% endblock %}
+</div>
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

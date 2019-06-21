@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Aanmelden</h1>
+    <label for="inputUsername" class="sr-only">Gebruikersnaam</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Gebruikersnaam" required autofocus>
+    <label for="inputPassword" class="sr-only">Wachtwoord</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <button class="button" type="submit">
+        Inloggen
+    </button>
+</form>
+{% endblock %}
