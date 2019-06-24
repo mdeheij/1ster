@@ -13,8 +13,6 @@
         <div class="float-right">{{ include('dinner/_delete_form.html.twig') }}</div>
     </div>
 
-
-
     <table class="table">
         <tbody>
         <tr>
@@ -32,13 +30,13 @@
         </tbody>
     </table>
 
-
     <h2>Gerechten</h2>
     <a class="button" href="{{ path('dish_new', {'id': dinner.id}) }}">Voeg een gerecht toe</a>
     <table class="table">
         <thead>
         <tr>
             <th>Naam</th>
+            <th>Gang</th>
             <th>Gemaakt door</th>
             <th>Acties</th>
         </tr>
@@ -46,11 +44,12 @@
         <tbody>
         {% for dish in dinner.dishes %}
             <tr>
-                <td>{{ dish.name |capitalize }}</td>
+                <td>{{ dish.name | capitalize }}{% if dish.vegetarian %} <img alt="Vegetarisch" src="{{ asset('vegetarian-mark.svg') }}" style="height: 1em"/>{% endif %}</td>
+                <td>{{ dish.course | capitalize }}</td>
                 <td>
                     <ul>
                         {% for user in dish.cookedby %}
-                            <li>{{ user.username |capitalize }} </li>
+                            <li>{{ user.username | capitalize }} </li>
                         {% endfor %}
                     </ul>
                 </td>
@@ -66,16 +65,12 @@
         </tbody>
     </table>
 
-
     <h2>Aanwezige gasten</h2>
     <ul>
         {% for guest in dinner.going %}
-            <li>{{ guest.username |capitalize }} </li>
+            <li>{{ guest.username | capitalize }} </li>
         {% endfor %}
     </ul>
 
-
-
     {{ include('dinner/_attend_form.html.twig') }}
-
 {% endblock %}

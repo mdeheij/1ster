@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\CourseNames;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -33,9 +34,20 @@ class Dish
      */
     private $dinner;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $course;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $vegetarian;
+
     public function __construct()
     {
         $this->cooked_by = new ArrayCollection();
+        $this->vegetarian = true;
     }
 
     public function getId(): ?int
@@ -89,6 +101,34 @@ class Dish
     public function setDinner(?Dinner $dinner): self
     {
         $this->dinner = $dinner;
+
+        return $this;
+    }
+
+    public function getCourse(): ?string
+    {
+        return $this->course;
+    }
+
+    public function setCourse(string $course): self
+    {
+        if (!in_array($course, CourseNames::getAll())) {
+            throw new \InvalidArgumentException("Invalid course");
+        }
+
+        $this->course = $course;
+
+        return $this;
+    }
+
+    public function getVegetarian(): bool
+    {
+        return $this->vegetarian;
+    }
+
+    public function setVegetarian(bool $vegetarian): self
+    {
+        $this->vegetarian = $vegetarian;
 
         return $this;
     }
