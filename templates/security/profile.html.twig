@@ -6,6 +6,7 @@
     <h1>Mijn account: {{ user.username }}</h1>
 
     {{ form_start(profileForm) }}
+        {{ form_row(profileForm.name) }}
         {{ form_row(profileForm.plainPassword) }}
 
         <button class="button">Wijzigen</button>

@@ -28,6 +28,11 @@ class User implements UserInterface
     private $username;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $password;
@@ -175,7 +180,19 @@ class User implements UserInterface
 
     public function __toString(): string
     {
-        return $this->getUsername();
+        return $this->getName();
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name ? $this->name : $this->getUsername();
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
     }
 
 
