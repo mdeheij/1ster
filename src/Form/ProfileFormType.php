@@ -17,6 +17,7 @@ class ProfileFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Naam'])
+            ->add('username', TextType::class, ['label' => 'Gebruikersnaam'])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
