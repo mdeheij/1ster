@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace App\Enum;
 
-use Symfony\Component\VarDumper\VarDumper;
-
 /**
  * Contains the names of courses
  */
