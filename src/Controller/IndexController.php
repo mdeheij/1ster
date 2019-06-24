@@ -17,20 +17,7 @@ class IndexController
      * @Template("index.html.twig")
      * @Route("/", name="index")
      */
-
     public function index(UserPasswordEncoderInterface $encoder, EntityManagerInterface $em)
     {
-        // whatever *your* User object is
-//        $user = new User();
-//        $plainPassword = 'henk';
-//        $encoded = $encoder->encodePassword($user, $plainPassword);
-//
-//        $user->setUsername('mdeheij');
-//        $user->setPassword($encoded);
-//
-//        var_dump($user);
-//
-////        $em->persist($user);
-////        $em->flush();
     }
 }
