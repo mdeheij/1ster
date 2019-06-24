@@ -112,7 +112,7 @@ class Dish
 
     public function setCourse(string $course): self
     {
-        if (!in_array($course, CourseNames::getAll())) {
+        if (!in_array($course, CourseNames::getOptions())) {
             throw new \InvalidArgumentException("Invalid course");
         }
 
