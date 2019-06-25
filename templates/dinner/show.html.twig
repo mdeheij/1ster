@@ -38,23 +38,23 @@
             <th>Naam</th>
             <th>Gang</th>
             <th>Gemaakt door</th>
-            <th>Acties</th>
         </tr>
         </thead>
         <tbody>
         {% for dish in dinner.dishes %}
             <tr>
-                <td>{{ dish.name | capitalize }}{% if dish.vegetarian %} <img alt="Vegetarisch" src="{{ asset('vegetarian-mark.svg') }}" style="height: 1em"/>{% endif %}</td>
-                <td>{{ dish.course | capitalize }}</td>
+                <td>
+                    <a href="{{ path('dish_edit', {'id': dish.id}) }}">
+                    {{ dish.name | capitalize }}{% if dish.vegetarian %} <img alt="Vegetarisch" src="{{ asset('vegetarian-mark.svg') }}" style="height: 1em"/>{% endif %}
+                    </a>
+                </td>
+                <td>{{ dish.coursename | capitalize }}</td>
                 <td>
                     <ul>
                         {% for user in dish.cookedby %}
                             <li>{{ user.username | capitalize }} </li>
                         {% endfor %}
                     </ul>
-                </td>
-                <td>
-                    <a class="button" href="{{ path('dish_edit', {'id': dish.id}) }}">Bewerken</a>
                 </td>
             </tr>
         {% else %}
