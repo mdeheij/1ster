@@ -110,7 +110,7 @@ class Dish
         return $this->course;
     }
 
-    public function getCourseName(): string
+    public function getCourseName(): ?string
     {
         foreach (CourseNames::getOptions() as $name => $value) {
             if ($this->course === $value) {
