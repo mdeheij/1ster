@@ -12,6 +12,10 @@
     </div>
 
     <table class="table">
+        <colgroup>
+            <col style="width:30%">
+            <col style="width:70%">
+        </colgroup>
         <tbody>
         <tr>
             <th>Thema</th>
@@ -25,8 +29,15 @@
             <th>Datum</th>
             <td>{{ dinner.day ? dinner.day|date('Y-m-d') : 'Nog geen datum bekend' }}</td>
         </tr>
+        <tr>
+            <th>Gasten ({{ dinner.going | length }})</th>
+            <td>{{ dinner.going | join(', ', ' en ')  }}</td>
+        </tr>
         </tbody>
     </table>
+
+    {{ include('dinner/_attend_form.html.twig') }}
+
 
     <h2>Gerechten</h2>
     <a class="button" href="{{ path('dish_new', {'id': dinner.id}) }}">Voeg een gerecht toe</a>
@@ -63,12 +74,5 @@
         </tbody>
     </table>
 
-    <h2>Aanwezige gasten ({{ dinner.going | length }})</h2>
-    <ul>
-        {% for guest in dinner.going %}
-            <li>{{ guest.name }} </li>
-        {% endfor %}
-    </ul>
 
-    {{ include('dinner/_attend_form.html.twig') }}
 {% endblock %}

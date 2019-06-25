@@ -7,6 +7,13 @@ table, button, .button {
     box-shadow: 5px 5px 16px -5px rgba(0,0,0,0.19);
 }
 
+.table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
 .top-bar {
     border: 1px solid #ccc;
     border-top: 0;
