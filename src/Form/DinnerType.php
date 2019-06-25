@@ -15,8 +15,7 @@ class DinnerType extends AbstractType
         $builder
             ->add('theme')
             ->add('location')
-            ->add('day', DateType::class, ['widget' => 'single_text', 'required' => false])
-        ;
+            ->add('day', DateType::class, ['widget' => 'single_text', 'required' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

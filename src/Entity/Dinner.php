@@ -124,7 +124,7 @@ class Dinner
 
     public function __toString(): string
     {
-        return sprintf('%s: %s',$this->getTheme(), $this->getLocation());
+        return sprintf('%s: %s', $this->getTheme(), $this->getLocation());
     }
 
     /**

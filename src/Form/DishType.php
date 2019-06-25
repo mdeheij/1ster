@@ -16,15 +16,14 @@ class DishType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',TextType::class, ['label' => 'Naam'])
+            ->add('name', TextType::class, ['label' => 'Naam'])
             ->add('cooked_by')
             ->add('course', ChoiceType::class, array(
                 'required' => true,
                 'choices' => CourseNames::getOptions(),
                 'label' => 'Gang'
             ))
-            ->add('vegetarian', CheckboxType::class, ['label' => 'Vegetarisch'])
-        ;
+            ->add('vegetarian', CheckboxType::class, ['label' => 'Vegetarisch']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
