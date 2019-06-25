@@ -1,0 +1,13 @@
+body {
+    background-color: #f5f6f1;
+}
+table, button, .button {
+    -webkit-box-shadow: 5px 5px 16px -5px rgba(0,0,0,0.19);
+    -moz-box-shadow: 5px 5px 16px -5px rgba(0,0,0,0.19);
+    box-shadow: 5px 5px 16px -5px rgba(0,0,0,0.19);
+}
+
+.top-bar {
+    border: 1px solid #ccc;
+    border-top: 0;
+}
