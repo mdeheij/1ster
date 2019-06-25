@@ -6,10 +6,16 @@
     <link rel="stylesheet" href="{{ asset('theme.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#5bbad5">
+
     <meta name="theme-color" content="#722c2c"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>1 ster - {% block title %}{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
