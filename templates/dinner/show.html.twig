@@ -52,7 +52,7 @@
                 <td>
                     <ul>
                         {% for user in dish.cookedby %}
-                            <li>{{ user.username | capitalize }} </li>
+                            <li>{{ user.name }} </li>
                         {% endfor %}
                     </ul>
                 </td>
@@ -68,7 +68,7 @@
     <h2>Aanwezige gasten ({{ dinner.going | length }})</h2>
     <ul>
         {% for guest in dinner.going %}
-            <li>{{ guest.username | capitalize }} </li>
+            <li>{{ guest.name }} </li>
         {% endfor %}
     </ul>
 
