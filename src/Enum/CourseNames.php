@@ -17,6 +17,7 @@ final class CourseNames
     public const SECOND_MAIN_COURSE = 'Tweede hoofdgerecht';
     public const DESSERT = 'Dessert';
     public const MIGNARDISE = 'Mignardise';
+    public const SIDE_DISH = 'Bijgerecht';
     public const WINE = 'Wijn';
 
     /**
@@ -41,6 +42,7 @@ final class CourseNames
             self::SECOND_MAIN_COURSE => 'SECOND_MAIN_COURSE',
             self::DESSERT => 'DESSERT',
             self::MIGNARDISE => 'MIGNARDISE',
+            self::SIDE_DISH => 'SIDE_DISH',
             self::WINE => 'WINE',
         ];
     }
