@@ -9,19 +9,18 @@
                 <th>Thema</th>
                 <th>Locatie</th>
                 <th>Dag</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for dinner in dinners %}
             <tr{% if not dinner.day %} style="font-style: italic"{% endif %}>
-                <td>{{ dinner.theme ? dinner.theme : '<i>onbekend</i>'}}</td>
-                <td>{{ dinner.location }}</td>
-                <td>{{ dinner.day ? dinner.day|date('Y-m-d') : '<i>onbekend</i>' }}</td>
                 <td>
-                    <a class="button" href="{{ path('dinner_show', {'id': dinner.id}) }}">Bekijken</a>
-                    <a class="button" href="{{ path('dinner_edit', {'id': dinner.id}) }}">Bewerken</a>
+                    <a href="{{ path('dinner_show', {'id': dinner.id}) }}">
+                        {{ dinner.theme ? dinner.theme : '<i>onbekend</i>'}}
+                    </a>
                 </td>
+                <td>{{ dinner.location ? dinner.location : '<i>onbekend</i>' }}</td>
+                <td>{{ dinner.day ? dinner.day|date('Y-m-d') : '<i>onbekend</i>' }}</td>
             </tr>
         {% else %}
             <tr>

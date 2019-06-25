@@ -91,7 +91,7 @@ class DinnerController extends AbstractController
      */
     public function delete(Request $request, Dinner $dinner): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $dinner->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$dinner->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($dinner);
             $entityManager->flush();

@@ -17,26 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class DishController extends AbstractController
 {
     /**
-     * @Route("/", name="dish_index", methods={"GET"})
-     */
-    public function index(DishRepository $dishRepository): Response
-    {
-        return $this->render('dish/index.html.twig', [
-            'dishes' => $dishRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="dish_show", methods={"GET"})
-     */
-    public function show(Dish $dish): Response
-    {
-        return $this->render('dish/show.html.twig', [
-            'dish' => $dish,
-        ]);
-    }
-
-    /**
      * @Template("dish/edit.html.twig")
      * @Route("/{id}/edit", name="dish_edit", methods={"GET","POST"})
      */
