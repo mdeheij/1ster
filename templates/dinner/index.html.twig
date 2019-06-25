@@ -3,8 +3,6 @@
 {% block title %}Diners{% endblock %}
 
 {% block body %}
-    <h1>Diners</h1>
-
     <table class="table">
         <thead>
             <tr>
@@ -16,7 +14,7 @@
         </thead>
         <tbody>
         {% for dinner in dinners %}
-            <tr>
+            <tr{% if not dinner.day %} style="font-style: italic"{% endif %}>
                 <td>{{ dinner.theme ? dinner.theme : '<i>onbekend</i>'}}</td>
                 <td>{{ dinner.location }}</td>
                 <td>{{ dinner.day ? dinner.day|date('Y-m-d') : '<i>onbekend</i>' }}</td>

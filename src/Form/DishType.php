@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Dish;
+use App\Entity\User;
 use App\Enum\CourseNames;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -17,7 +19,11 @@ class DishType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Naam'])
-            ->add('cooked_by')
+            ->add('cooked_by', EntityType::class, [
+                'class' => User::class,
+                'multiple' => true,
+                'label' => 'Gemaakt door',
+            ])
             ->add('course', ChoiceType::class, array(
                 'required' => true,
                 'choices' => CourseNames::getOptions(),

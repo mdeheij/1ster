@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('theme.css') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <meta name="theme-color" content="#722c2c" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}Welcome!{% endblock %}</title>
@@ -24,7 +25,6 @@
         </div>
         <div class="top-bar-right">
             <ul class="menu">
-
             {% if is_granted('ROLE_USER') %}
                 <li><a href="{{ path('app_profile') }}">Mijn account</a></li>
                 <li><a href="{{ path('app_logout') }}">Uitloggen</a></li>
@@ -34,6 +34,8 @@
             </ul>
         </div>
     </div>
+
+    <br/>
 
     {% block body %}{% endblock %}
 </div>
